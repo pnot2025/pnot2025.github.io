@@ -26,8 +26,8 @@ let OpenSMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png'
     
   });
 
-       let prueba = L.tileLayer.wms("https://geoserver.planificacion.gob.bo/geoserver/pnot/wms?", {
-    layers: "pnot:administracion_aduanera_2018",
+       let prueba = L.tileLayer.wms("https://geoserver.planificacion.gob.bo/geoserver/pnot2025metropolizacion/wms?", {
+    layers: "pnot2025metropolizacion:evapotranspiracion_real_por_unidad_hidrografica",
     interactive: false,
     format: 'image/png',
     transparent: true,
