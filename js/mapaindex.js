@@ -26,6 +26,15 @@ let OpenSMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png'
     
   });
 
+       let prueba = L.tileLayer.wms("https://geoserver.planificacion.gob.bo/geoserver/pnot/wms?", {
+    layers: "pnot:administracion_aduanera_2018",
+    interactive: false,
+    format: 'image/png',
+    transparent: true,
+    version: '1.1.1',
+    
+  });
+
 let baselayer = {
 //"Capas Base": {
     "Open street Map": OpenSMap,
@@ -38,6 +47,7 @@ let overlays = {
 //"Capas DGOU": {
     "Amenaza de helada": pobla,
     "Amenaza de incendios": incendio,
+   "prueba": prueba,
 
 
 };
