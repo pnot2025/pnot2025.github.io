@@ -1,0 +1,79 @@
+#map {
+height: 720px;
+width: 900px;
+margin-left: 380px;
+border: 2px;
+border-style: solid;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    padding-top: 50px;
+    background-color: black;
+transition: width 0.3s;
+} 
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+}
+
+.sidebar .description {
+    font-size: 12px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgb(121, 121, 121);
+}
+
+@media (max-width:480px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar .description {
+        display: none;
+    }
+
+    .sidebar .nav-link {
+        justify-content: center;
+    }
+    
+    .main-content {
+        margin-left: 60px;
+    }
+}
+
+
+
+.row {
+    color: rgb(0, 0, 0);
+    width: 580px;
+background-color: rgb(222, 222, 222);
+
+}
+
+ul, ol {
+    list-style: none;
+}
+.row a {
+    color: rgb(91, 91, 91);
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 1o0px;
+}
+
+.row a:hover {
+color: rgb(201, 64, 0);
+}
+
+.contenido {
+    display: flex;
+}
