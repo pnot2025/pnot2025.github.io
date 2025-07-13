@@ -75,9 +75,9 @@ let Municipios = L.geoJson(json_municipios4326_1, {
 function etnias(feature, layer) {
   if (feature.properties && feature.properties.ETNIAS) {
     layer.bindPopup("<strong>ETNIAS: </strong>" + feature.properties.ETNIAS
-      + "<br><strong>DEPARTAMENTO: </strong>" + feature.properties.DEP
-      + "<br><strong>PROVINCIA: </strong>" + feature.properties.PROV
-      + "<br><strong>MUNICIPIO: </strong>" + feature.properties.MUN
+      + "<br><strong>DEPARTAMENTO: </strong>" + feature.properties.DEPARTAMEN
+      + "<br><strong>PROVINCIA: </strong>" + feature.properties.PROVINCIA
+      + "<br><strong>MUNICIPIO: </strong>" + feature.properties.MUN_TIOC
 
 
     );
