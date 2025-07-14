@@ -63,7 +63,6 @@ function municipios() {
   }
 }
 
-
 let Municipios = L.geoJson(json_municipios4326_1, {
   onEachFeature: popupmunicipio,
   style: municipios
@@ -81,6 +80,7 @@ let overlays = {
   //"Capas DGOU": {
   "Departamentos": Departamentos,
   "Municipios": Municipios,
+
 
 };
 

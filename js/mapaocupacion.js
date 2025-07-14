@@ -629,23 +629,224 @@ let altaT = L.geoJson(json_lat_2024_1, {
   style: style_altaT
 })
 
+// atractivos turisticos
+
+function popupturisticos(feature, layer) {
+  if (feature.properties && feature.properties.JERARQUIA) {
+    layer.bindPopup("<strong>Jerarquia: </strong>" + feature.properties.JERARQUIA
+      + "<br><strong>Nombre: </strong>" + feature.properties.NOMBRE
+      + "<br><strong>Sitio Turistico: </strong>" + feature.properties.SITIOS_TUR
+    );
+  }
+}
+
+
+function style_atractivos() {
+
+  return {
+
+    radius: 4.799999999999997,
+    opacity: 1,
+    color: 'rgba(50,87,128,1.0)',
+    dashArray: '',
+    lineCap: 'butt',
+    lineJoin: 'miter',
+    weight: 2.0,
+    fill: true,
+    fillOpacity: 1,
+    fillColor: 'rgba(72,123,182,1.0)',
+    interactive: true,
+
+  }
+
+}
+
+let atractivosturisticos = L.geoJson(atractivos, {
+  onEachFeature: popupturisticos,
+  pointToLayer: function (feature, latlng) {
+    var context = {
+      feature: feature,
+      variables: {}
+    };
+    return L.circleMarker(latlng, style_atractivos(feature));
+  },
+})
+
+
+
+
+// Plantas industriales
+
+function popupPlantas(feature, layer) {
+  if (feature.properties && feature.properties.PROY_SISIN) {
+    layer.bindPopup("<strong>Proyecto: </strong>" + feature.properties.PROY_SISIN
+      + "<br><strong>Entidad Ejecutora: </strong>" + feature.properties.ENTID_EJEC
+      + "<br><strong>Fuente de Financiamiento: </strong>" + feature.properties.FUENT_FINA
+    );
+  }
+}
+
+
+function style_plantas() {
+
+  return {
+
+    radius: 4.799999999999997,
+    opacity: 1,
+    color: 'rgba(0,0,0,1.0)',
+    dashArray: '',
+    lineCap: 'butt',
+    lineJoin: 'miter',
+    weight: 2.0,
+    fill: true,
+    fillOpacity: 1,
+    fillColor: 'rgba(63, 63, 63,1.0)',
+    interactive: true,
+
+  }
+
+}
+
+let plantasIndustriales = L.geoJson(plantas, {
+  onEachFeature: popupPlantas,
+  pointToLayer: function (feature, latlng) {
+    var context = {
+      feature: feature,
+      variables: {}
+    };
+    return L.circleMarker(latlng, style_plantas(feature));
+  },
+})
+
+// patrimonio cultural
+
+function popupPatri(feature, layer) {
+  if (feature.properties && feature.properties.DEPARTAMEN) {
+    layer.bindPopup("<strong>Departamento: </strong>" + feature.properties.DEPARTAMEN
+      + "<br><strong>Municipio: </strong>" + feature.properties.MUNICIPIO
+      + "<br><strong>Clasificación: </strong>" + feature.properties.CLASIFICAC
+            + "<br><strong>Sistema: </strong>" + feature.properties.Sistema_de
+    );
+  }
+}
+
+
+  function style_patrimonio(feature) {
+            if (feature.properties['TOTAL'] >= 1.000000 && feature.properties['TOTAL'] <= 0.000000 ) {
+                return {
+
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['TOTAL'] >= 0.000000 && feature.properties['TOTAL'] <= 4.000000 ) {
+                return {
+
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(218,0,0,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['TOTAL'] >= 4.000000 && feature.properties['TOTAL'] <= 14.000000 ) {
+                return {
+
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,156,57,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['TOTAL'] >= 14.000000 && feature.properties['TOTAL'] <= 46.000000 ) {
+                return {
+
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,240,25,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['TOTAL'] >= 46.000000 && feature.properties['TOTAL'] <= 158.000000 ) {
+                return {
+
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(100,230,52,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['TOTAL'] >= 158.000000 && feature.properties['TOTAL'] <= 281.000000 ) {
+                return {
+
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,184,25,1.0)',
+                interactive: true,
+            }
+            }
+        }
+
+let Patrimonio = L.geoJson(json_tipologiaPatrimonio_0, {
+  onEachFeature: popupPatri,
+style: style_patrimonio
+})
+
+
 
 let baselayer = {
-  //"Capas Base": {
+  
   "Open street Map": OpenSMap,
 
 
 };
 
 let overlays = {
-
-  //"Capas DGOU": {
   "Departamentos": Departamentos,
   "Municipios": Municipios,
   "Etnias": Etnias,
   "Media Tension": mediaT,
   "Alta Tension": altaT,
-
+  "Atractivos Turisticos": atractivosturisticos,
+  "Plantas industriales": plantasIndustriales,
+  "Patrimonio Cultural": Patrimonio
 
 
 };
