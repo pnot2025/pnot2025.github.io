@@ -84,6 +84,7 @@ function etnias(feature, layer) {
   }
 }
 
+
 function style_etnias(feature) {
   switch (String(feature.properties['ETNIAS'])) {
     case 'AFROBOLIVIANO':
@@ -570,6 +571,64 @@ let Etnias = L.geoJson(json_etnias_0, {
   style: style_etnias
 })
 
+// media tension
+
+function popupmediaT(feature, layer) {
+  if (feature.properties && feature.properties.TITULAR) {
+    layer.bindPopup("<strong>Nombre: </strong>" + feature.properties.TITULAR
+      + "<br><strong>Sistema: </strong>" + feature.properties.SIN
+    );
+  }
+}
+
+function stylemediaT() {
+  return {
+    opacity: 1,
+    color: 'rgba(255,135,43,1.0)',
+    dashArray: '',
+    lineCap: 'square',
+    lineJoin: 'bevel',
+    weight: 1.0,
+    fillOpacity: 0,
+    interactive: true,
+  }
+}
+
+let mediaT = L.geoJson(capa_mediaT, {
+  onEachFeature: popupmediaT,
+  style: stylemediaT
+})
+
+// alta tension
+
+function popupaltaT(feature, layer) {
+  if (feature.properties && feature.properties.empresa) {
+    layer.bindPopup("<strong>Empresa: </strong>" + feature.properties.empresa
+      + "<br><strong>Nivel de Voltage: </strong>" + feature.properties.nivel_volt
+      + "<br><strong>Linea: </strong>" + feature.properties.linea
+    );
+  }
+}
+
+
+function style_altaT() {
+  return {
+    opacity: 1,
+    color: 'rgba(234,0,27,1.0)',
+    dashArray: '',
+    lineCap: 'square',
+    lineJoin: 'bevel',
+    weight: 3.0,
+    fillOpacity: 0,
+    interactive: true,
+  }
+}
+
+let altaT = L.geoJson(json_lat_2024_1, {
+  onEachFeature: popupaltaT,
+  style: style_altaT
+})
+
 
 let baselayer = {
   //"Capas Base": {
@@ -584,6 +643,8 @@ let overlays = {
   "Departamentos": Departamentos,
   "Municipios": Municipios,
   "Etnias": Etnias,
+  "Media Tension": mediaT,
+  "Alta Tension": altaT,
 
 
 
